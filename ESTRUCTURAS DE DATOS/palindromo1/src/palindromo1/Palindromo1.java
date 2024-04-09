@@ -10,6 +10,7 @@ public class Palindromo1 {
         str1 = str1.replaceAll(" +", "");//Elimina todos los espacios
         str1 = str1.replaceAll(",", "");//Elimina todos las comas
         str1 = str1.replaceAll(".", "");//Elimina todos los puntos
+        replaceTildes(str1);
         boolean palind = true;//Booleano para determinar si es o no Palindromo
         for (int i = 0; i < (str1.length()/2); i++){
             if (str1.charAt(i) != str1.charAt(str1.length()-1-i)){
@@ -24,6 +25,13 @@ public class Palindromo1 {
         } else{
             System.out.println("La frase NO es un palindromo");
         }
+    }
+    public static void replaceTildes(String x){ //Cambia todas las tildes por vocales normales
+        x = x.replaceAll("á", "a");
+        x = x.replaceAll("é", "e");
+        x = x.replaceAll("í", "i");
+        x = x.replaceAll("ó", "o");
+        x = x.replaceAll("ú", "u");
     }
     
 }
