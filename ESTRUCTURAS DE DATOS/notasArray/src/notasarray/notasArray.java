@@ -28,7 +28,6 @@ public class notasArray {
             } while (true);
 
         }
-        System.out.println("Ingrese que desea realizar: ");
 
         //Presentación por pantalla del array
         System.out.print("\nEl arreglo ingresado es: {");
