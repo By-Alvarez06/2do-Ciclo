@@ -6,7 +6,7 @@ public class estudianteRegistro {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Estudiante[] arrayRegistro = new Estudiante[2];
+        Estudiante[] arrayRegistro = new Estudiante[6];
         for (int i = 0; i < arrayRegistro.length; i++) {
             Estudiante est = new Estudiante();
             System.out.printf("\nIngrese la cedula del estudiante %d: ", i + 1);
