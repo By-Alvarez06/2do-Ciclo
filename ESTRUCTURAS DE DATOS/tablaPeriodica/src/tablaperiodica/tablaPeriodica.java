@@ -126,6 +126,9 @@ public class tablaPeriodica {
         float valores[] = {cola1[0].getMasAtomico(), cola2[0].getMasAtomico(),
             cola3[0].getMasAtomico(), cola4[0].getMasAtomico()};
         burbuja(valores);
+        
+        //If else, comparando los valores burbuja con el atributo
+        
         pushPila(valores[3]);
         pushPila(valores[2]);
         pushPila(valores[1]);
