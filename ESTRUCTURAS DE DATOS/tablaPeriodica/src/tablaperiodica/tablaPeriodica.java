@@ -8,6 +8,7 @@ import java.io.FileWriter;
 public class tablaPeriodica {
     public static TablaP[] elementos = new TablaP[118];
     public static void main(String[] args) {
+        System.out.println("Ingrese");
         leerArchivo();
         mostrarArray();
     }
@@ -17,10 +18,10 @@ public class tablaPeriodica {
             File arch = new File("src/Elements.csv");
             Scanner sc = new Scanner(arch);
             String[] element;
-            TablaP elementoN = new TablaP();
             int i = 0;
             while(sc.hasNextLine()){
                 element = sc.nextLine().split(",");
+                TablaP elementoN = new TablaP();
                 elementoN.setnAtomico(Integer.parseInt(element[0]));
                 elementoN.setElAtomico(element[1]);
                 elementoN.setSiAtomico(element[2]);
@@ -39,7 +40,7 @@ public class tablaPeriodica {
     public static void mostrarArray(){
         for (int i = 0; i < elementos.length; i++) {
             TablaP elemento = elementos[i];
-            System.out.printf("%d, %s, %s, %f", elemento.getnAtomico(), 
+            System.out.printf("\n%d, %s, %s, %.2f", elemento.getnAtomico(), 
                     elemento.getElAtomico(),elemento.getSiAtomico(), elemento.getMasAtomico());
             
         }
