@@ -4,22 +4,39 @@ import java.io.File;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Random;
 
 public class tablaPeriodica {
+
     public static TablaP[] elementos = new TablaP[118];
+    public static TablaP[] cola1;
+    public static TablaP[] cola2;
+    public static TablaP[] cola3;
+    public static TablaP[] cola4;
+    public static int num;
+
     public static void main(String[] args) {
-        System.out.println("Ingrese");
         leerArchivo();
         mostrarArray();
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("\nIngrese el numero de elementos a ingresar en la cola: ");
+        num = sc.nextInt();
+        cola1 = new TablaP[num];
+        cola2 = new TablaP[num];
+        cola3 = new TablaP[num];
+        cola4 = new TablaP[num];
+        colasRandomicas();
+        mostrarColas();
     }
-    
-    public static void leerArchivo(){
-        try{
+
+    public static void leerArchivo() {
+        try {
             File arch = new File("src/Elements.csv");
             Scanner sc = new Scanner(arch);
             String[] element;
             int i = 0;
-            while(sc.hasNextLine()){
+            while (sc.hasNextLine()) {
                 element = sc.nextLine().split(",");
                 TablaP elementoN = new TablaP();
                 elementoN.setnAtomico(Integer.parseInt(element[0]));
@@ -30,20 +47,105 @@ public class tablaPeriodica {
                 i++;
             }
             sc.close();
-            
-            
-        } catch (Exception e){
+
+        } catch (Exception e) {
             System.err.println("ERROR: " + e.getMessage());
         }
     }
-    
-    public static void mostrarArray(){
+
+    public static void mostrarArray() {
         for (int i = 0; i < elementos.length; i++) {
             TablaP elemento = elementos[i];
-            System.out.printf("\n%d, %s, %s, %.2f", elemento.getnAtomico(), 
-                    elemento.getElAtomico(),elemento.getSiAtomico(), elemento.getMasAtomico());
-            
+            System.out.printf("\n%d, %s, %s, %.2f", elemento.getnAtomico(),
+                    elemento.getElAtomico(), elemento.getSiAtomico(), elemento.getMasAtomico());
+        }
+        System.out.println();
+    }
+
+    public static void colasRandomicas() {
+        Random rand = new Random();
+        for (int i = 0; i < num; i++) {
+            cola1[i] = elementos[rand.nextInt(118)];
+            cola2[i] = elementos[rand.nextInt(118)];
+            cola3[i] = elementos[rand.nextInt(118)];
+            cola4[i] = elementos[rand.nextInt(118)];
         }
     }
     
+    public static void mostrarColas(){
+        System.out.print("Cola 1: \n{");
+        for (int i = 0; i < cola1.length; i++) {
+            TablaP elemento = cola1[i];
+            System.out.printf("%d, %s, %s, %.2f -+- ", elemento.getnAtomico(),
+                    elemento.getElAtomico(), elemento.getSiAtomico(), elemento.getMasAtomico());
+        }
+        System.out.print("}\n");
+        System.out.print("Cola 2: \n{");
+        for (int i = 0; i < cola2.length; i++) {
+            TablaP elemento = cola2[i];
+            System.out.printf("%d, %s, %s, %.2f -+- ", elemento.getnAtomico(),
+                    elemento.getElAtomico(), elemento.getSiAtomico(), elemento.getMasAtomico());
+        }
+        System.out.print("}\n");
+        System.out.print("Cola 3: \n{");
+        for (int i = 0; i < cola3.length; i++) {
+            TablaP elemento = cola3[i];
+            System.out.printf("%d, %s, %s, %.2f -+- ", elemento.getnAtomico(),
+                    elemento.getElAtomico(), elemento.getSiAtomico(), elemento.getMasAtomico());
+        }
+        System.out.print("}\n");
+        System.out.print("Cola 4: \n{");
+        for (int i = 0; i < cola4.length; i++) {
+            TablaP elemento = cola4[i];
+            System.out.printf("%d, %s, %s, %.2f -+- ", elemento.getnAtomico(),
+                    elemento.getElAtomico(), elemento.getSiAtomico(), elemento.getMasAtomico());
+        }
+        System.out.print("}\n");
+    }
+    
+
+    public static void comparar() {
+        float valores[] = {cola1[0].getMasAtomico(), cola2[0].getMasAtomico(),
+            cola3[0].getMasAtomico(), cola4[0].getMasAtomico()};
+        burbuja(valores);
+        pushPila();
+        if (cola1[0].getMasAtomico() > valor) {
+            valor = cola1[0].getMasAtomico();
+        }
+        if (cola2[] > valor) {
+            valor = cola2[];
+        }
+        if (cola3[] > valor) {
+            valor = cola3[];
+        }
+        if (cola4[] > valor) {
+            valor = cola4[];
+        }
+
+        if (cola1[0] >= cola2[0]) {
+            pushPila(cola1[0]);
+            pushPila(cola2[0]);
+            popCola1();
+            popCola2();
+        } else {
+            pushPila(cola2[0]);
+            pushPila(cola1[0]);
+            popCola2();
+            popCola1();
+        }
+    }
+
+    public static void burbuja(float[] arreglo) {
+        for (int i = 0; i < arreglo.length - 1; i++) {
+            for (int j = 0; j < arreglo.length - i - 1; j++) {
+                if (arreglo[j] > arreglo[j + 1]) {
+                    // Intercambiar arreglo[j] y arreglo[j+1]
+                    float temp = arreglo[j];
+                    arreglo[j] = arreglo[j + 1];
+                    arreglo[j + 1] = temp;
+                }
+            }
+        }
+    }
+
 }
