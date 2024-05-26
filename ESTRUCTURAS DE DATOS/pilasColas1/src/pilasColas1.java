@@ -40,6 +40,7 @@ public class pilasColas1 {
             comparar();
         }
         System.out.println(Arrays.toString(pila1));
+        // Funcion Arrays.toString para presentar por pantalla un array
         
     }
     
