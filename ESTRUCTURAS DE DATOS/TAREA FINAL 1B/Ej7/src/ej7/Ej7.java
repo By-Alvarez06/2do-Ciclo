@@ -7,7 +7,6 @@ public class Ej7 {
         Scanner sc = new Scanner(System.in);
         int n, sumaPares, sumaImpares;
         int[] lista;
-        float porcentajePar;
         System.out.print("Cuantos # va a ingresar?: ");
         n = sc.nextInt();
         lista = new int[n];
