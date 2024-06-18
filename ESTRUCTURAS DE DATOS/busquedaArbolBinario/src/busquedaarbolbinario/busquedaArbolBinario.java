@@ -1,15 +1,17 @@
 package busquedaarbolbinario;
-
 import java.util.Scanner;
+
+/*
+AUTORES: BYRON ALVAREZ - DANIEL CAMPOVERDE
+*/
 
 public class busquedaArbolBinario {
 
     public static Scanner sc = new Scanner(System.in);
-
+    public static ArbolBinario arbol = new ArbolBinario();
     public static void main(String[] args) {
-        ArbolBinario arbol = new ArbolBinario();
         boolean bandera = true;
-        int raiz, nodo1, nodo2;
+        int nodo1;
         String opcion;
         do {
             System.out.print("Ingrese el valor del nodo (o digite 's' para salir): ");
@@ -38,10 +40,30 @@ public class busquedaArbolBinario {
             
         } while (bandera);
 
-        /*
-        Arbol basado en la imagen: 
-        https://slideplayer.es/slide/2971477/11/images/16/Recorrido+de+%C3%A1rboles+%284%29.jpg
-         */
+        
+        mostrarArbol();
+        
+        // Eliminar valores mayores del cuarto nivel
+        System.out.println("Eliminando valores mayores del cuarto nivel...");
+        arbol.eliminarCuartoNivelDerecha();
+        System.out.println("Recorrido en inorden después de eliminar mayores del cuarto nivel:");
+        arbol.recorrerInorden(arbol.raiz);
+        System.out.println();
+        
+        // Eliminar valores menores del tercer nivel
+        System.out.println("Eliminando valores menores del tercer nivel...");
+        arbol.eliminarMenoresTercerNivel();
+        System.out.println("Recorrido en inorden después de eliminar menores del tercer nivel:");
+        arbol.recorrerInorden(arbol.raiz);
+        System.out.println();
+
+        
+        
+        System.out.println("\n\nResultado final en pantalla");
+        mostrarArbol();
+    }
+    
+    public static void mostrarArbol(){
         System.out.println("Recorrido en preorden:");
         arbol.recorrerPreorden(arbol.raiz);
         System.out.println();
