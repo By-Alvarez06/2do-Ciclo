@@ -22,6 +22,20 @@ public class Parcial1Bim2 {
         }
 
         mostrarArbol();
+        
+        System.out.println("Ingrese algo extra a la operacion (operador o operando):");
+        String expresion2 = sc.nextLine();
+        for (int i = 0; i < expresion2.length(); i++) {
+            String valor = String.valueOf(expresion2.charAt(i));
+            // Si es un operador, se agrega como raíz del árbol
+            if (esOperador(valor)) {
+                arbol.agregarComoRaiz(valor);
+            } else {
+                arbol.agregar(valor); // Si es un operando, se agrega como nodo hoja
+            }
+        }
+        
+        mostrarArbol();
     }
 
     /*
