@@ -111,7 +111,32 @@ public class arbolAVL {
     public void inOrder() { inOrder(raiz); }
     public void preOrder() { preOrder(raiz); }
     public void postOrder() { postOrder(raiz); }
+    
+    // Método para buscar un valor específico y obtener información adicional
+    public void buscarEnArbol(int valor) {
+        buscar(raiz, valor, 0, "Raíz");
+    }
 
+    private void buscar(NodoAVL nodo, int valor, int nivel, String rama) {
+        if (nodo == null) {
+            System.out.println("Valor no encontrado.");
+            return;
+        }
+
+        if (valor == nodo.valor) {
+            System.out.println("Valor encontrado: " + valor);
+            System.out.println("Nivel: " + nivel);
+            System.out.println("Rama: " + rama);
+            return;
+        }
+
+        if (valor < nodo.valor)
+            buscar(nodo.izquierdo, valor, nivel + 1, "Izquierda");
+        else
+            buscar(nodo.derecho, valor, nivel + 1, "Derecha");
+    }
+    
+    
     // Método para buscar un valor específico
     public NodoAVL buscar(NodoAVL nodo, int valor) {
         if (nodo == null || nodo.valor == valor)
@@ -126,7 +151,7 @@ public class arbolAVL {
     public NodoAVL buscar(int valor) {
         return buscar(raiz, valor);
     }
-
+    
     // Implementación de eliminación
     public NodoAVL eliminar(NodoAVL nodo, int valor) {
         if (nodo == null) return nodo;

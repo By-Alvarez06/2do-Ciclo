@@ -52,6 +52,7 @@ public class Principal {
                     NodoAVL resultado = arbol.buscar(valorBuscar);
                     if (resultado != null) {
                         System.out.println("Valor encontrado: " + resultado.valor);
+                        arbol.buscarEnArbol(valorBuscar);
                     } else {
                         System.out.println("Valor no encontrado.");
                     }
