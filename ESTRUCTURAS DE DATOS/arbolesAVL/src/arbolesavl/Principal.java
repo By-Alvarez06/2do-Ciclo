@@ -1,11 +1,17 @@
 package arbolesavl;
 
 import java.util.Scanner;
-
+/*
+AUTORES: BYRON ALVAREZ - DANIEL CAMPOVERDE
+*/
 public class Principal {
 
     public static void main(String[] args) {
         arbolAVL arbol = new arbolAVL();
+        /*
+        Arbol utilizado de ejemplo para comprobar su funcionamiento:
+        https://lh4.googleusercontent.com/proxy/T6KhIj9PplAPcCWT7FGo238pNirXeMz6ImycUA81LOvlU_OPuZkVj_CjkUXbZ4XM1Iup1IqFSsdCbxS3aZ9c059iGSwdJ9Y
+        */
 
         Scanner scanner = new Scanner(System.in);
         int opcion;
@@ -76,35 +82,3 @@ public class Principal {
     }
 
 }
-
-// Codigo Util
-/*
-        // Insertar los valores en el orden adecuado
-        int[] valores = {20, 10, 40, 5, 15, 30, 50, 25, 35, 45, 60};
-        for (int valor : valores) {
-            arbol.insertar(valor);
-        }
-        
-
-        System.out.println("Recorrido in-order:");
-        arbol.inOrder();
-
-        System.out.println("\nRecorrido pre-order:");
-        arbol.preOrder();
-
-        System.out.println("\nRecorrido post-order:");
-        arbol.postOrder();
-
-        System.out.println("\nBuscando valor 30:");
-        NodoAVL resultado = arbol.buscar(30);
-        if (resultado != null) {
-            System.out.println("Valor encontrado: " + resultado.valor);
-        } else {
-            System.out.println("Valor no encontrado.");
-        }
-
-        System.out.println("\nEliminando valor 40:");
-        arbol.eliminar(40);
-        System.out.println("Recorrido in-order después de la eliminación:");
-        arbol.inOrder();
- */
